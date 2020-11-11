@@ -1,0 +1,7 @@
+<section>
+  <div><%= image_tag line_item.product.image.thumb %></div>
+  <div><%= line_item.product.name%></div>
+  <div><%= line_item.product.description%></div>
+  <div>Number Ordered: <%= line_item.quantity%></div>
+  <div>Subtotal: <%= humanized_money_with_symbol line_item.total_price_cents%></div>
+</section>
