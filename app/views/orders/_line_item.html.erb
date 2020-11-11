@@ -1,0 +1,7 @@
+<section>
+  <%= image_tag line_item.product.image.thumb %>
+  <%= line_item.product.name%>
+  <%= line_item.product.description%>
+  <%= line_item.quantity%>
+  <%= humanized_money_with_symbol line_item.total_price_cents%>
+</section>
