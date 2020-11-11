@@ -9,8 +9,9 @@
     <% @order.line_items.each do |line_item| %>
       <%= render 'line_item', line_item: line_item%>
     <% end %>
-    <div> <%= @order.total_cents %> </div>
-    <div> <%= @order.email %> </div>
+
+    <div>Total: <%= @order.total_cents %> </div>
+    <div>Email: <%= @order.email %> </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
