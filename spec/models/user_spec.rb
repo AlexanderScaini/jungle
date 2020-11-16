@@ -37,7 +37,7 @@ RSpec.describe User, type: :model do
     it 'should authenticate an email with the correct email and password' do
       new_user = User.new first_name: 'Bob', last_name: 'Burger', email: 'bob@gmail.com', password: '12345', password_confirmation: '12345'
       new_user.save
-      expect(new_user = User.authenticate_with_credentials('bob@gmail.com', '12345')).to_not be(nil)
+      expect(new_user = User.authenticate_with_credentials('bob@gmail.com', '12345')).to eq(new_user)
     end
 
     it 'should not create a session if the email doesnt exist in the database' do
@@ -55,13 +55,13 @@ RSpec.describe User, type: :model do
     it 'should create a session if the email was input with spaces on either side of it' do
       new_user = User.new first_name: 'Bob', last_name: 'Burger', email: 'bob@gmail.com', password: '12345', password_confirmation: '12345'
       new_user.save
-      expect(new_user = User.authenticate_with_credentials('       bob@gmail.com    ', '12345')).to_not be(nil)
+      expect(new_user = User.authenticate_with_credentials('       bob@gmail.com    ', '12345')).to eq(new_user)
     end
 
     it 'should create a session if the email was input with a different case' do
       new_user = User.new first_name: 'Bob', last_name: 'Burger', email: 'bob@gmail.com', password: '12345', password_confirmation: '12345'
       new_user.save
-      expect(new_user = User.authenticate_with_credentials('BOB@GMAIL.com', '12345')).to_not be(nil)
+      expect(new_user = User.authenticate_with_credentials('BOB@GMAIL.com', '12345')).to eq(new_user)
     end
 
   end
