@@ -16,9 +16,9 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     end
   end
 
-  scenario "They see the specific product page" do
+  xscenario "They see the specific product page" do
     visit root_path
-    
+
     page.first('h4').click
 
     expect(page).to have_css 'article.product-detail'
